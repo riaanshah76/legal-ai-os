@@ -9,38 +9,373 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkflowsRouteImport } from './routes/workflows'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ConnectorsRouteImport } from './routes/connectors'
+import { Route as BookDemoRouteImport } from './routes/book-demo'
+import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as ApprovalsRouteImport } from './routes/approvals'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CopilotsRiskAssessmentRouteImport } from './routes/copilots/risk-assessment'
+import { Route as CopilotsPolicyReviewRouteImport } from './routes/copilots/policy-review'
+import { Route as CopilotsNdaReviewRouteImport } from './routes/copilots/nda-review'
+import { Route as CopilotsLegalResearchRouteImport } from './routes/copilots/legal-research'
+import { Route as CopilotsDueDiligenceRouteImport } from './routes/copilots/due-diligence'
+import { Route as CopilotsContractReviewRouteImport } from './routes/copilots/contract-review'
+import { Route as CopilotsComplianceRouteImport } from './routes/copilots/compliance'
 
+const WorkflowsRoute = WorkflowsRouteImport.update({
+  id: '/workflows',
+  path: '/workflows',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectorsRoute = ConnectorsRouteImport.update({
+  id: '/connectors',
+  path: '/connectors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDemoRoute = BookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApprovalsRoute = ApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CopilotsRiskAssessmentRoute = CopilotsRiskAssessmentRouteImport.update({
+  id: '/copilots/risk-assessment',
+  path: '/copilots/risk-assessment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsPolicyReviewRoute = CopilotsPolicyReviewRouteImport.update({
+  id: '/copilots/policy-review',
+  path: '/copilots/policy-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsNdaReviewRoute = CopilotsNdaReviewRouteImport.update({
+  id: '/copilots/nda-review',
+  path: '/copilots/nda-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsLegalResearchRoute = CopilotsLegalResearchRouteImport.update({
+  id: '/copilots/legal-research',
+  path: '/copilots/legal-research',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsDueDiligenceRoute = CopilotsDueDiligenceRouteImport.update({
+  id: '/copilots/due-diligence',
+  path: '/copilots/due-diligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsContractReviewRoute = CopilotsContractReviewRouteImport.update({
+  id: '/copilots/contract-review',
+  path: '/copilots/contract-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsComplianceRoute = CopilotsComplianceRouteImport.update({
+  id: '/copilots/compliance',
+  path: '/copilots/compliance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/book-demo': typeof BookDemoRoute
+  '/connectors': typeof ConnectorsRoute
+  '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/workflows': typeof WorkflowsRoute
+  '/copilots/compliance': typeof CopilotsComplianceRoute
+  '/copilots/contract-review': typeof CopilotsContractReviewRoute
+  '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
+  '/copilots/legal-research': typeof CopilotsLegalResearchRoute
+  '/copilots/nda-review': typeof CopilotsNdaReviewRoute
+  '/copilots/policy-review': typeof CopilotsPolicyReviewRoute
+  '/copilots/risk-assessment': typeof CopilotsRiskAssessmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/book-demo': typeof BookDemoRoute
+  '/connectors': typeof ConnectorsRoute
+  '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/workflows': typeof WorkflowsRoute
+  '/copilots/compliance': typeof CopilotsComplianceRoute
+  '/copilots/contract-review': typeof CopilotsContractReviewRoute
+  '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
+  '/copilots/legal-research': typeof CopilotsLegalResearchRoute
+  '/copilots/nda-review': typeof CopilotsNdaReviewRoute
+  '/copilots/policy-review': typeof CopilotsPolicyReviewRoute
+  '/copilots/risk-assessment': typeof CopilotsRiskAssessmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/book-demo': typeof BookDemoRoute
+  '/connectors': typeof ConnectorsRoute
+  '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/knowledge': typeof KnowledgeRoute
+  '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/workflows': typeof WorkflowsRoute
+  '/copilots/compliance': typeof CopilotsComplianceRoute
+  '/copilots/contract-review': typeof CopilotsContractReviewRoute
+  '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
+  '/copilots/legal-research': typeof CopilotsLegalResearchRoute
+  '/copilots/nda-review': typeof CopilotsNdaReviewRoute
+  '/copilots/policy-review': typeof CopilotsPolicyReviewRoute
+  '/copilots/risk-assessment': typeof CopilotsRiskAssessmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/analytics'
+    | '/approvals'
+    | '/assistant'
+    | '/book-demo'
+    | '/connectors'
+    | '/dashboard'
+    | '/documents'
+    | '/knowledge'
+    | '/login'
+    | '/settings'
+    | '/workflows'
+    | '/copilots/compliance'
+    | '/copilots/contract-review'
+    | '/copilots/due-diligence'
+    | '/copilots/legal-research'
+    | '/copilots/nda-review'
+    | '/copilots/policy-review'
+    | '/copilots/risk-assessment'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/analytics'
+    | '/approvals'
+    | '/assistant'
+    | '/book-demo'
+    | '/connectors'
+    | '/dashboard'
+    | '/documents'
+    | '/knowledge'
+    | '/login'
+    | '/settings'
+    | '/workflows'
+    | '/copilots/compliance'
+    | '/copilots/contract-review'
+    | '/copilots/due-diligence'
+    | '/copilots/legal-research'
+    | '/copilots/nda-review'
+    | '/copilots/policy-review'
+    | '/copilots/risk-assessment'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/analytics'
+    | '/approvals'
+    | '/assistant'
+    | '/book-demo'
+    | '/connectors'
+    | '/dashboard'
+    | '/documents'
+    | '/knowledge'
+    | '/login'
+    | '/settings'
+    | '/workflows'
+    | '/copilots/compliance'
+    | '/copilots/contract-review'
+    | '/copilots/due-diligence'
+    | '/copilots/legal-research'
+    | '/copilots/nda-review'
+    | '/copilots/policy-review'
+    | '/copilots/risk-assessment'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  ApprovalsRoute: typeof ApprovalsRoute
+  AssistantRoute: typeof AssistantRoute
+  BookDemoRoute: typeof BookDemoRoute
+  ConnectorsRoute: typeof ConnectorsRoute
+  DashboardRoute: typeof DashboardRoute
+  DocumentsRoute: typeof DocumentsRoute
+  KnowledgeRoute: typeof KnowledgeRoute
+  LoginRoute: typeof LoginRoute
+  SettingsRoute: typeof SettingsRoute
+  WorkflowsRoute: typeof WorkflowsRoute
+  CopilotsComplianceRoute: typeof CopilotsComplianceRoute
+  CopilotsContractReviewRoute: typeof CopilotsContractReviewRoute
+  CopilotsDueDiligenceRoute: typeof CopilotsDueDiligenceRoute
+  CopilotsLegalResearchRoute: typeof CopilotsLegalResearchRoute
+  CopilotsNdaReviewRoute: typeof CopilotsNdaReviewRoute
+  CopilotsPolicyReviewRoute: typeof CopilotsPolicyReviewRoute
+  CopilotsRiskAssessmentRoute: typeof CopilotsRiskAssessmentRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workflows': {
+      id: '/workflows'
+      path: '/workflows'
+      fullPath: '/workflows'
+      preLoaderRoute: typeof WorkflowsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connectors': {
+      id: '/connectors'
+      path: '/connectors'
+      fullPath: '/connectors'
+      preLoaderRoute: typeof ConnectorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-demo': {
+      id: '/book-demo'
+      path: '/book-demo'
+      fullPath: '/book-demo'
+      preLoaderRoute: typeof BookDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approvals': {
+      id: '/approvals'
+      path: '/approvals'
+      fullPath: '/approvals'
+      preLoaderRoute: typeof ApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +383,80 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/copilots/risk-assessment': {
+      id: '/copilots/risk-assessment'
+      path: '/copilots/risk-assessment'
+      fullPath: '/copilots/risk-assessment'
+      preLoaderRoute: typeof CopilotsRiskAssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/policy-review': {
+      id: '/copilots/policy-review'
+      path: '/copilots/policy-review'
+      fullPath: '/copilots/policy-review'
+      preLoaderRoute: typeof CopilotsPolicyReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/nda-review': {
+      id: '/copilots/nda-review'
+      path: '/copilots/nda-review'
+      fullPath: '/copilots/nda-review'
+      preLoaderRoute: typeof CopilotsNdaReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/legal-research': {
+      id: '/copilots/legal-research'
+      path: '/copilots/legal-research'
+      fullPath: '/copilots/legal-research'
+      preLoaderRoute: typeof CopilotsLegalResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/due-diligence': {
+      id: '/copilots/due-diligence'
+      path: '/copilots/due-diligence'
+      fullPath: '/copilots/due-diligence'
+      preLoaderRoute: typeof CopilotsDueDiligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/contract-review': {
+      id: '/copilots/contract-review'
+      path: '/copilots/contract-review'
+      fullPath: '/copilots/contract-review'
+      preLoaderRoute: typeof CopilotsContractReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/compliance': {
+      id: '/copilots/compliance'
+      path: '/copilots/compliance'
+      fullPath: '/copilots/compliance'
+      preLoaderRoute: typeof CopilotsComplianceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  ApprovalsRoute: ApprovalsRoute,
+  AssistantRoute: AssistantRoute,
+  BookDemoRoute: BookDemoRoute,
+  ConnectorsRoute: ConnectorsRoute,
+  DashboardRoute: DashboardRoute,
+  DocumentsRoute: DocumentsRoute,
+  KnowledgeRoute: KnowledgeRoute,
+  LoginRoute: LoginRoute,
+  SettingsRoute: SettingsRoute,
+  WorkflowsRoute: WorkflowsRoute,
+  CopilotsComplianceRoute: CopilotsComplianceRoute,
+  CopilotsContractReviewRoute: CopilotsContractReviewRoute,
+  CopilotsDueDiligenceRoute: CopilotsDueDiligenceRoute,
+  CopilotsLegalResearchRoute: CopilotsLegalResearchRoute,
+  CopilotsNdaReviewRoute: CopilotsNdaReviewRoute,
+  CopilotsPolicyReviewRoute: CopilotsPolicyReviewRoute,
+  CopilotsRiskAssessmentRoute: CopilotsRiskAssessmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

@@ -1,0 +1,72 @@
+// Realistic legal datasets shared across pages
+export const contracts = [
+  { id: "C-2039", name: "Master Services Agreement — Acme Corp", company: "Acme Corp", type: "MSA", value: "$2.4M", status: "pending", risk: "medium", confidence: 94, date: "2026-07-08", clauses: 42 },
+  { id: "C-2038", name: "SaaS Subscription — Northwind Health", company: "Northwind Health", type: "SaaS", value: "$480K", status: "approved", risk: "low", confidence: 98, date: "2026-07-07", clauses: 28 },
+  { id: "C-2037", name: "Data Processing Addendum — Contoso", company: "Contoso Ltd", type: "DPA", value: "—", status: "pending", risk: "high", confidence: 87, date: "2026-07-07", clauses: 19 },
+  { id: "C-2036", name: "Vendor Agreement — Fabrikam Logistics", company: "Fabrikam", type: "Vendor", value: "$310K", status: "approved", risk: "low", confidence: 96, date: "2026-07-06", clauses: 24 },
+  { id: "C-2035", name: "Non-Disclosure Agreement — Tailspin Toys", company: "Tailspin Toys", type: "NDA", value: "—", status: "pending", risk: "low", confidence: 99, date: "2026-07-06", clauses: 11 },
+  { id: "C-2034", name: "Employment Contract — J. Rodriguez", company: "Internal", type: "Employment", value: "—", status: "rejected", risk: "medium", confidence: 91, date: "2026-07-05", clauses: 17 },
+  { id: "C-2033", name: "Licensing Agreement — Adventure Works", company: "Adventure Works", type: "License", value: "$1.1M", status: "pending", risk: "medium", confidence: 92, date: "2026-07-04", clauses: 33 },
+];
+
+export const clauses = [
+  { name: "Confidentiality", status: "ok", note: "Standard 5-year survival" },
+  { name: "Termination for Convenience", status: "ok", note: "60-day notice, mutual" },
+  { name: "Payment Terms", status: "ok", note: "Net-45, quarterly true-up" },
+  { name: "Limitation of Liability", status: "warn", note: "Cap at 1x annual fees — recommend 2x" },
+  { name: "Indemnification", status: "ok", note: "Mutual, IP carve-out" },
+  { name: "Governing Law", status: "ok", note: "State of Delaware" },
+  { name: "Arbitration", status: "missing", note: "No arbitration clause detected" },
+  { name: "Data Protection", status: "warn", note: "Missing GDPR sub-processor list" },
+  { name: "Force Majeure", status: "ok", note: "Includes pandemic language" },
+];
+
+export const cases = [
+  { cite: "Smith v. Jones, 592 U.S. 214 (2024)", court: "U.S. Supreme Court", tag: "Contract Law", snippet: "Held that force majeure clauses require specific enumeration of triggering events to be enforceable in commercial contracts…" },
+  { cite: "In re Meridian Data Corp., 88 F.4th 1123 (9th Cir. 2024)", court: "9th Circuit", tag: "Data Privacy", snippet: "Clarified the scope of CCPA private right of action for statutory damages following unauthorized access to encrypted PII…" },
+  { cite: "Delaware Chancery: Ashford Holdings LLC v. Blackrock Ventures", court: "Del. Ch. 2025", tag: "M&A", snippet: "Court refused to enforce MAE clause where buyer failed to demonstrate durationally significant impact on target's earnings…" },
+  { cite: "Patel v. FirstBank NA, 2025 WL 118821 (S.D.N.Y.)", court: "S.D.N.Y.", tag: "Employment", snippet: "Denied summary judgment on ADA accommodation claim; jury question on essential functions of remote-eligible role…" },
+];
+
+export const approvals = [
+  { id: "A-882", subject: "MSA — Acme Corp", requester: "L. Chen", type: "Contract", urgency: "high", waiting: "2h" },
+  { id: "A-881", subject: "DPA — Contoso Ltd", requester: "R. Kimura", type: "Contract", urgency: "high", waiting: "4h" },
+  { id: "A-880", subject: "Policy: Vendor Onboarding v3", requester: "Compliance", type: "Policy", urgency: "medium", waiting: "1d" },
+  { id: "A-879", subject: "NDA — Tailspin Toys", requester: "S. Patel", type: "NDA", urgency: "low", waiting: "1d" },
+  { id: "A-878", subject: "Employment offer — J. Rodriguez", requester: "HR", type: "Employment", urgency: "medium", waiting: "2d" },
+];
+
+export const activities = [
+  { time: "2m ago", text: "Contract Review Copilot flagged 3 non-standard clauses in MSA — Acme Corp", tag: "Copilot" },
+  { time: "18m ago", text: "Compliance Copilot completed SOC 2 gap analysis (14 findings)", tag: "Compliance" },
+  { time: "1h ago", text: "Legal Research Copilot cited 4 cases for M&A memo — Ashford Holdings", tag: "Research" },
+  { time: "3h ago", text: "NDA batch (12) auto-approved after low-risk classification", tag: "NDA" },
+  { time: "Yesterday", text: "Due Diligence room opened for Project Meridian — 218 documents ingested", tag: "DD" },
+];
+
+export const monthlySeries = [
+  { m: "Jan", contracts: 84, reviews: 62, risk: 22 },
+  { m: "Feb", contracts: 96, reviews: 71, risk: 18 },
+  { m: "Mar", contracts: 112, reviews: 88, risk: 24 },
+  { m: "Apr", contracts: 128, reviews: 104, risk: 19 },
+  { m: "May", contracts: 141, reviews: 121, risk: 16 },
+  { m: "Jun", contracts: 168, reviews: 148, risk: 14 },
+  { m: "Jul", contracts: 184, reviews: 172, risk: 11 },
+];
+
+export const contractMix = [
+  { name: "MSA", value: 32 },
+  { name: "NDA", value: 28 },
+  { name: "SaaS", value: 18 },
+  { name: "Employment", value: 12 },
+  { name: "Other", value: 10 },
+];
+
+export const regulations = [
+  { code: "GDPR", region: "EU", score: 96, findings: 2 },
+  { code: "CCPA / CPRA", region: "California", score: 94, findings: 3 },
+  { code: "SOC 2 Type II", region: "US", score: 91, findings: 5 },
+  { code: "HIPAA", region: "US", score: 88, findings: 6 },
+  { code: "ISO 27001", region: "Global", score: 93, findings: 4 },
+  { code: "SOX §404", region: "US", score: 97, findings: 1 },
+];

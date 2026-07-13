@@ -12,7 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CopilotsRiskAssessmentRouteImport } from './routes/copilots/risk-assessment'
+import { Route as CopilotsPolicyReviewRouteImport } from './routes/copilots/policy-review'
+import { Route as CopilotsNdaReviewRouteImport } from './routes/copilots/nda-review'
+import { Route as CopilotsLegalResearchRouteImport } from './routes/copilots/legal-research'
+import { Route as CopilotsDueDiligenceRouteImport } from './routes/copilots/due-diligence'
 import { Route as CopilotsContractReviewRouteImport } from './routes/copilots/contract-review'
+import { Route as CopilotsComplianceRouteImport } from './routes/copilots/compliance'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
@@ -29,9 +35,39 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CopilotsRiskAssessmentRoute = CopilotsRiskAssessmentRouteImport.update({
+  id: '/copilots/risk-assessment',
+  path: '/copilots/risk-assessment',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsPolicyReviewRoute = CopilotsPolicyReviewRouteImport.update({
+  id: '/copilots/policy-review',
+  path: '/copilots/policy-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsNdaReviewRoute = CopilotsNdaReviewRouteImport.update({
+  id: '/copilots/nda-review',
+  path: '/copilots/nda-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsLegalResearchRoute = CopilotsLegalResearchRouteImport.update({
+  id: '/copilots/legal-research',
+  path: '/copilots/legal-research',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsDueDiligenceRoute = CopilotsDueDiligenceRouteImport.update({
+  id: '/copilots/due-diligence',
+  path: '/copilots/due-diligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CopilotsContractReviewRoute = CopilotsContractReviewRouteImport.update({
   id: '/copilots/contract-review',
   path: '/copilots/contract-review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopilotsComplianceRoute = CopilotsComplianceRouteImport.update({
+  id: '/copilots/compliance',
+  path: '/copilots/compliance',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -39,34 +75,89 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/copilots/compliance': typeof CopilotsComplianceRoute
   '/copilots/contract-review': typeof CopilotsContractReviewRoute
+  '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
+  '/copilots/legal-research': typeof CopilotsLegalResearchRoute
+  '/copilots/nda-review': typeof CopilotsNdaReviewRoute
+  '/copilots/policy-review': typeof CopilotsPolicyReviewRoute
+  '/copilots/risk-assessment': typeof CopilotsRiskAssessmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/copilots/compliance': typeof CopilotsComplianceRoute
   '/copilots/contract-review': typeof CopilotsContractReviewRoute
+  '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
+  '/copilots/legal-research': typeof CopilotsLegalResearchRoute
+  '/copilots/nda-review': typeof CopilotsNdaReviewRoute
+  '/copilots/policy-review': typeof CopilotsPolicyReviewRoute
+  '/copilots/risk-assessment': typeof CopilotsRiskAssessmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/copilots/compliance': typeof CopilotsComplianceRoute
   '/copilots/contract-review': typeof CopilotsContractReviewRoute
+  '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
+  '/copilots/legal-research': typeof CopilotsLegalResearchRoute
+  '/copilots/nda-review': typeof CopilotsNdaReviewRoute
+  '/copilots/policy-review': typeof CopilotsPolicyReviewRoute
+  '/copilots/risk-assessment': typeof CopilotsRiskAssessmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/login' | '/copilots/contract-review'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/copilots/compliance'
+    | '/copilots/contract-review'
+    | '/copilots/due-diligence'
+    | '/copilots/legal-research'
+    | '/copilots/nda-review'
+    | '/copilots/policy-review'
+    | '/copilots/risk-assessment'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/login' | '/copilots/contract-review'
-  id: '__root__' | '/' | '/dashboard' | '/login' | '/copilots/contract-review'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/copilots/compliance'
+    | '/copilots/contract-review'
+    | '/copilots/due-diligence'
+    | '/copilots/legal-research'
+    | '/copilots/nda-review'
+    | '/copilots/policy-review'
+    | '/copilots/risk-assessment'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/copilots/compliance'
+    | '/copilots/contract-review'
+    | '/copilots/due-diligence'
+    | '/copilots/legal-research'
+    | '/copilots/nda-review'
+    | '/copilots/policy-review'
+    | '/copilots/risk-assessment'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
+  CopilotsComplianceRoute: typeof CopilotsComplianceRoute
   CopilotsContractReviewRoute: typeof CopilotsContractReviewRoute
+  CopilotsDueDiligenceRoute: typeof CopilotsDueDiligenceRoute
+  CopilotsLegalResearchRoute: typeof CopilotsLegalResearchRoute
+  CopilotsNdaReviewRoute: typeof CopilotsNdaReviewRoute
+  CopilotsPolicyReviewRoute: typeof CopilotsPolicyReviewRoute
+  CopilotsRiskAssessmentRoute: typeof CopilotsRiskAssessmentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,11 +183,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/copilots/risk-assessment': {
+      id: '/copilots/risk-assessment'
+      path: '/copilots/risk-assessment'
+      fullPath: '/copilots/risk-assessment'
+      preLoaderRoute: typeof CopilotsRiskAssessmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/policy-review': {
+      id: '/copilots/policy-review'
+      path: '/copilots/policy-review'
+      fullPath: '/copilots/policy-review'
+      preLoaderRoute: typeof CopilotsPolicyReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/nda-review': {
+      id: '/copilots/nda-review'
+      path: '/copilots/nda-review'
+      fullPath: '/copilots/nda-review'
+      preLoaderRoute: typeof CopilotsNdaReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/legal-research': {
+      id: '/copilots/legal-research'
+      path: '/copilots/legal-research'
+      fullPath: '/copilots/legal-research'
+      preLoaderRoute: typeof CopilotsLegalResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/due-diligence': {
+      id: '/copilots/due-diligence'
+      path: '/copilots/due-diligence'
+      fullPath: '/copilots/due-diligence'
+      preLoaderRoute: typeof CopilotsDueDiligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/copilots/contract-review': {
       id: '/copilots/contract-review'
       path: '/copilots/contract-review'
       fullPath: '/copilots/contract-review'
       preLoaderRoute: typeof CopilotsContractReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copilots/compliance': {
+      id: '/copilots/compliance'
+      path: '/copilots/compliance'
+      fullPath: '/copilots/compliance'
+      preLoaderRoute: typeof CopilotsComplianceRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -106,7 +239,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
+  CopilotsComplianceRoute: CopilotsComplianceRoute,
   CopilotsContractReviewRoute: CopilotsContractReviewRoute,
+  CopilotsDueDiligenceRoute: CopilotsDueDiligenceRoute,
+  CopilotsLegalResearchRoute: CopilotsLegalResearchRoute,
+  CopilotsNdaReviewRoute: CopilotsNdaReviewRoute,
+  CopilotsPolicyReviewRoute: CopilotsPolicyReviewRoute,
+  CopilotsRiskAssessmentRoute: CopilotsRiskAssessmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

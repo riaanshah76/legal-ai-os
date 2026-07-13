@@ -9,8 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkflowsRouteImport } from './routes/workflows'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as DocumentsRouteImport } from './routes/documents'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ConnectorsRouteImport } from './routes/connectors'
+import { Route as BookDemoRouteImport } from './routes/book-demo'
+import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as ApprovalsRouteImport } from './routes/approvals'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CopilotsRiskAssessmentRouteImport } from './routes/copilots/risk-assessment'
 import { Route as CopilotsPolicyReviewRouteImport } from './routes/copilots/policy-review'
@@ -20,14 +30,64 @@ import { Route as CopilotsDueDiligenceRouteImport } from './routes/copilots/due-
 import { Route as CopilotsContractReviewRouteImport } from './routes/copilots/contract-review'
 import { Route as CopilotsComplianceRouteImport } from './routes/copilots/compliance'
 
+const WorkflowsRoute = WorkflowsRouteImport.update({
+  id: '/workflows',
+  path: '/workflows',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectorsRoute = ConnectorsRouteImport.update({
+  id: '/connectors',
+  path: '/connectors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookDemoRoute = BookDemoRouteImport.update({
+  id: '/book-demo',
+  path: '/book-demo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssistantRoute = AssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApprovalsRoute = ApprovalsRouteImport.update({
+  id: '/approvals',
+  path: '/approvals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,8 +133,18 @@ const CopilotsComplianceRoute = CopilotsComplianceRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/book-demo': typeof BookDemoRoute
+  '/connectors': typeof ConnectorsRoute
   '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/knowledge': typeof KnowledgeRoute
   '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/workflows': typeof WorkflowsRoute
   '/copilots/compliance': typeof CopilotsComplianceRoute
   '/copilots/contract-review': typeof CopilotsContractReviewRoute
   '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
@@ -85,8 +155,18 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/book-demo': typeof BookDemoRoute
+  '/connectors': typeof ConnectorsRoute
   '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/knowledge': typeof KnowledgeRoute
   '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/workflows': typeof WorkflowsRoute
   '/copilots/compliance': typeof CopilotsComplianceRoute
   '/copilots/contract-review': typeof CopilotsContractReviewRoute
   '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
@@ -98,8 +178,18 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/analytics': typeof AnalyticsRoute
+  '/approvals': typeof ApprovalsRoute
+  '/assistant': typeof AssistantRoute
+  '/book-demo': typeof BookDemoRoute
+  '/connectors': typeof ConnectorsRoute
   '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/knowledge': typeof KnowledgeRoute
   '/login': typeof LoginRoute
+  '/settings': typeof SettingsRoute
+  '/workflows': typeof WorkflowsRoute
   '/copilots/compliance': typeof CopilotsComplianceRoute
   '/copilots/contract-review': typeof CopilotsContractReviewRoute
   '/copilots/due-diligence': typeof CopilotsDueDiligenceRoute
@@ -112,8 +202,18 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/analytics'
+    | '/approvals'
+    | '/assistant'
+    | '/book-demo'
+    | '/connectors'
     | '/dashboard'
+    | '/documents'
+    | '/knowledge'
     | '/login'
+    | '/settings'
+    | '/workflows'
     | '/copilots/compliance'
     | '/copilots/contract-review'
     | '/copilots/due-diligence'
@@ -124,8 +224,18 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/analytics'
+    | '/approvals'
+    | '/assistant'
+    | '/book-demo'
+    | '/connectors'
     | '/dashboard'
+    | '/documents'
+    | '/knowledge'
     | '/login'
+    | '/settings'
+    | '/workflows'
     | '/copilots/compliance'
     | '/copilots/contract-review'
     | '/copilots/due-diligence'
@@ -136,8 +246,18 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/analytics'
+    | '/approvals'
+    | '/assistant'
+    | '/book-demo'
+    | '/connectors'
     | '/dashboard'
+    | '/documents'
+    | '/knowledge'
     | '/login'
+    | '/settings'
+    | '/workflows'
     | '/copilots/compliance'
     | '/copilots/contract-review'
     | '/copilots/due-diligence'
@@ -149,8 +269,18 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  ApprovalsRoute: typeof ApprovalsRoute
+  AssistantRoute: typeof AssistantRoute
+  BookDemoRoute: typeof BookDemoRoute
+  ConnectorsRoute: typeof ConnectorsRoute
   DashboardRoute: typeof DashboardRoute
+  DocumentsRoute: typeof DocumentsRoute
+  KnowledgeRoute: typeof KnowledgeRoute
   LoginRoute: typeof LoginRoute
+  SettingsRoute: typeof SettingsRoute
+  WorkflowsRoute: typeof WorkflowsRoute
   CopilotsComplianceRoute: typeof CopilotsComplianceRoute
   CopilotsContractReviewRoute: typeof CopilotsContractReviewRoute
   CopilotsDueDiligenceRoute: typeof CopilotsDueDiligenceRoute
@@ -162,6 +292,20 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/workflows': {
+      id: '/workflows'
+      path: '/workflows'
+      fullPath: '/workflows'
+      preLoaderRoute: typeof WorkflowsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -169,11 +313,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connectors': {
+      id: '/connectors'
+      path: '/connectors'
+      fullPath: '/connectors'
+      preLoaderRoute: typeof ConnectorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-demo': {
+      id: '/book-demo'
+      path: '/book-demo'
+      fullPath: '/book-demo'
+      preLoaderRoute: typeof BookDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assistant': {
+      id: '/assistant'
+      path: '/assistant'
+      fullPath: '/assistant'
+      preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approvals': {
+      id: '/approvals'
+      path: '/approvals'
+      fullPath: '/approvals'
+      preLoaderRoute: typeof ApprovalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -237,8 +437,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  ApprovalsRoute: ApprovalsRoute,
+  AssistantRoute: AssistantRoute,
+  BookDemoRoute: BookDemoRoute,
+  ConnectorsRoute: ConnectorsRoute,
   DashboardRoute: DashboardRoute,
+  DocumentsRoute: DocumentsRoute,
+  KnowledgeRoute: KnowledgeRoute,
   LoginRoute: LoginRoute,
+  SettingsRoute: SettingsRoute,
+  WorkflowsRoute: WorkflowsRoute,
   CopilotsComplianceRoute: CopilotsComplianceRoute,
   CopilotsContractReviewRoute: CopilotsContractReviewRoute,
   CopilotsDueDiligenceRoute: CopilotsDueDiligenceRoute,

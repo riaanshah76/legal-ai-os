@@ -21,6 +21,9 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
+// Copilots nav section is hidden from the UI for now — see SHOW_COPILOTS below.
+const SHOW_COPILOTS = false;
+
 const primary = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/assistant", label: "AI Assistant", icon: Bot },
@@ -91,31 +94,33 @@ export function Sidebar() {
             })}
           </div>
         </div>
-        <div>
-          <div className="px-2 pb-2 text-[10px] uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
-            <Sparkles className="h-3 w-3 text-primary" /> Copilots
+        {SHOW_COPILOTS && (
+          <div>
+            <div className="px-2 pb-2 text-[10px] uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">
+              <Sparkles className="h-3 w-3 text-primary" /> Copilots
+            </div>
+            <div className="space-y-1">
+              {copilots.map((item) => {
+                const active = pathname === item.to;
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
+                      active
+                        ? "text-foreground bg-accent/60 border border-primary/20"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
+                    }`}
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span className="truncate">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-          <div className="space-y-1">
-            {copilots.map((item) => {
-              const active = pathname === item.to;
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                    active
-                      ? "text-foreground bg-accent/60 border border-primary/20"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  <span className="truncate">{item.label}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
+        )}
       </nav>
       <div className="px-3 py-4 border-t border-border">
         <div className="glass rounded-xl p-3">

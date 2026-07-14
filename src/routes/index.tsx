@@ -23,10 +23,9 @@ export const Route = createFileRoute("/")({
 
 const nav = [
   { href: "#why", label: "Why Us" },
-  { href: "#copilots", label: "Copilots" },
   { href: "#integrations", label: "Services" },
   { href: "/about", label: "About" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "#copilots", label: "Copilots" },
 ];
 
 function Landing() {

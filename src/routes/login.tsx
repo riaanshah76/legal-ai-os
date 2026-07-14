@@ -1,7 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Gavel, Mail, Lock, ArrowRight } from "lucide-react";
-import { MicrosoftLogo, GoogleDriveLogo } from "@/components/brand/logos";
 import { useState } from "react";
 
 export const Route = createFileRoute("/login")({
@@ -61,20 +60,7 @@ function Login() {
             </p>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-2">
-            <button className="h-11 rounded-lg glass hover:bg-accent/60 flex items-center justify-center gap-2 text-sm">
-              <GoogleDriveLogo className="h-4 w-4" /> Google
-            </button>
-            <button className="h-11 rounded-lg glass hover:bg-accent/60 flex items-center justify-center gap-2 text-sm">
-              <MicrosoftLogo className="h-4 w-4" /> Microsoft
-            </button>
-          </div>
-
-          <div className="my-5 flex items-center gap-3 text-xs text-muted-foreground">
-            <div className="flex-1 h-px bg-border" /> or continue with email <div className="flex-1 h-px bg-border" />
-          </div>
-
-          <form onSubmit={submit} className="space-y-3">
+          <form onSubmit={submit} className="mt-6 space-y-3">
             {mode === "signup" && (
               <input placeholder="Full name" className="w-full h-11 px-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40" />
             )}

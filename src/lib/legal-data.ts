@@ -1,12 +1,89 @@
 // Realistic legal datasets shared across pages
 export const contracts = [
-  { id: "C-2039", name: "Master Services Agreement — Acme Corp", company: "Acme Corp", type: "MSA", value: "$2.4M", status: "pending", risk: "medium", confidence: 94, date: "2026-07-08", clauses: 42 },
-  { id: "C-2038", name: "SaaS Subscription — Northwind Health", company: "Northwind Health", type: "SaaS", value: "$480K", status: "approved", risk: "low", confidence: 98, date: "2026-07-07", clauses: 28 },
-  { id: "C-2037", name: "Data Processing Addendum — Contoso", company: "Contoso Ltd", type: "DPA", value: "—", status: "pending", risk: "high", confidence: 87, date: "2026-07-07", clauses: 19 },
-  { id: "C-2036", name: "Vendor Agreement — Fabrikam Logistics", company: "Fabrikam", type: "Vendor", value: "$310K", status: "approved", risk: "low", confidence: 96, date: "2026-07-06", clauses: 24 },
-  { id: "C-2035", name: "Non-Disclosure Agreement — Tailspin Toys", company: "Tailspin Toys", type: "NDA", value: "—", status: "pending", risk: "low", confidence: 99, date: "2026-07-06", clauses: 11 },
-  { id: "C-2034", name: "Employment Contract — J. Rodriguez", company: "Internal", type: "Employment", value: "—", status: "rejected", risk: "medium", confidence: 91, date: "2026-07-05", clauses: 17 },
-  { id: "C-2033", name: "Licensing Agreement — Adventure Works", company: "Adventure Works", type: "License", value: "$1.1M", status: "pending", risk: "medium", confidence: 92, date: "2026-07-04", clauses: 33 },
+  {
+    id: "C-2039",
+    name: "Master Services Agreement — Acme Corp",
+    company: "Acme Corp",
+    type: "MSA",
+    value: "$2.4M",
+    status: "pending",
+    risk: "medium",
+    confidence: 94,
+    date: "2026-07-08",
+    clauses: 42,
+  },
+  {
+    id: "C-2038",
+    name: "SaaS Subscription — Northwind Health",
+    company: "Northwind Health",
+    type: "SaaS",
+    value: "$480K",
+    status: "approved",
+    risk: "low",
+    confidence: 98,
+    date: "2026-07-07",
+    clauses: 28,
+  },
+  {
+    id: "C-2037",
+    name: "Data Processing Addendum — Contoso",
+    company: "Contoso Ltd",
+    type: "DPA",
+    value: "—",
+    status: "pending",
+    risk: "high",
+    confidence: 87,
+    date: "2026-07-07",
+    clauses: 19,
+  },
+  {
+    id: "C-2036",
+    name: "Vendor Agreement — Fabrikam Logistics",
+    company: "Fabrikam",
+    type: "Vendor",
+    value: "$310K",
+    status: "approved",
+    risk: "low",
+    confidence: 96,
+    date: "2026-07-06",
+    clauses: 24,
+  },
+  {
+    id: "C-2035",
+    name: "Non-Disclosure Agreement — Tailspin Toys",
+    company: "Tailspin Toys",
+    type: "NDA",
+    value: "—",
+    status: "pending",
+    risk: "low",
+    confidence: 99,
+    date: "2026-07-06",
+    clauses: 11,
+  },
+  {
+    id: "C-2034",
+    name: "Employment Contract — J. Rodriguez",
+    company: "Internal",
+    type: "Employment",
+    value: "—",
+    status: "rejected",
+    risk: "medium",
+    confidence: 91,
+    date: "2026-07-05",
+    clauses: 17,
+  },
+  {
+    id: "C-2033",
+    name: "Licensing Agreement — Adventure Works",
+    company: "Adventure Works",
+    type: "License",
+    value: "$1.1M",
+    status: "pending",
+    risk: "medium",
+    confidence: 92,
+    date: "2026-07-04",
+    clauses: 33,
+  },
 ];
 
 export const clauses = [
@@ -22,26 +99,105 @@ export const clauses = [
 ];
 
 export const cases = [
-  { cite: "Smith v. Jones, 592 U.S. 214 (2024)", court: "U.S. Supreme Court", tag: "Contract Law", snippet: "Held that force majeure clauses require specific enumeration of triggering events to be enforceable in commercial contracts…" },
-  { cite: "In re Meridian Data Corp., 88 F.4th 1123 (9th Cir. 2024)", court: "9th Circuit", tag: "Data Privacy", snippet: "Clarified the scope of CCPA private right of action for statutory damages following unauthorized access to encrypted PII…" },
-  { cite: "Delaware Chancery: Ashford Holdings LLC v. Blackrock Ventures", court: "Del. Ch. 2025", tag: "M&A", snippet: "Court refused to enforce MAE clause where buyer failed to demonstrate durationally significant impact on target's earnings…" },
-  { cite: "Patel v. FirstBank NA, 2025 WL 118821 (S.D.N.Y.)", court: "S.D.N.Y.", tag: "Employment", snippet: "Denied summary judgment on ADA accommodation claim; jury question on essential functions of remote-eligible role…" },
+  {
+    cite: "Smith v. Jones, 592 U.S. 214 (2024)",
+    court: "U.S. Supreme Court",
+    tag: "Contract Law",
+    snippet:
+      "Held that force majeure clauses require specific enumeration of triggering events to be enforceable in commercial contracts…",
+  },
+  {
+    cite: "In re Meridian Data Corp., 88 F.4th 1123 (9th Cir. 2024)",
+    court: "9th Circuit",
+    tag: "Data Privacy",
+    snippet:
+      "Clarified the scope of CCPA private right of action for statutory damages following unauthorized access to encrypted PII…",
+  },
+  {
+    cite: "Delaware Chancery: Ashford Holdings LLC v. Blackrock Ventures",
+    court: "Del. Ch. 2025",
+    tag: "M&A",
+    snippet:
+      "Court refused to enforce MAE clause where buyer failed to demonstrate durationally significant impact on target's earnings…",
+  },
+  {
+    cite: "Patel v. FirstBank NA, 2025 WL 118821 (S.D.N.Y.)",
+    court: "S.D.N.Y.",
+    tag: "Employment",
+    snippet:
+      "Denied summary judgment on ADA accommodation claim; jury question on essential functions of remote-eligible role…",
+  },
 ];
 
 export const approvals = [
-  { id: "A-882", subject: "MSA — Acme Corp", requester: "L. Chen", type: "Contract", urgency: "high", waiting: "2h" },
-  { id: "A-881", subject: "DPA — Contoso Ltd", requester: "R. Kimura", type: "Contract", urgency: "high", waiting: "4h" },
-  { id: "A-880", subject: "Policy: Vendor Onboarding v3", requester: "Compliance", type: "Policy", urgency: "medium", waiting: "1d" },
-  { id: "A-879", subject: "NDA — Tailspin Toys", requester: "S. Patel", type: "NDA", urgency: "low", waiting: "1d" },
-  { id: "A-878", subject: "Employment offer — J. Rodriguez", requester: "HR", type: "Employment", urgency: "medium", waiting: "2d" },
+  {
+    id: "A-882",
+    subject: "MSA — Acme Corp",
+    requester: "L. Chen",
+    type: "Contract",
+    urgency: "high",
+    waiting: "2h",
+  },
+  {
+    id: "A-881",
+    subject: "DPA — Contoso Ltd",
+    requester: "R. Kimura",
+    type: "Contract",
+    urgency: "high",
+    waiting: "4h",
+  },
+  {
+    id: "A-880",
+    subject: "Policy: Vendor Onboarding v3",
+    requester: "Compliance",
+    type: "Policy",
+    urgency: "medium",
+    waiting: "1d",
+  },
+  {
+    id: "A-879",
+    subject: "NDA — Tailspin Toys",
+    requester: "S. Patel",
+    type: "NDA",
+    urgency: "low",
+    waiting: "1d",
+  },
+  {
+    id: "A-878",
+    subject: "Employment offer — J. Rodriguez",
+    requester: "HR",
+    type: "Employment",
+    urgency: "medium",
+    waiting: "2d",
+  },
 ];
 
 export const activities = [
-  { time: "2m ago", text: "Contract Review Copilot flagged 3 non-standard clauses in MSA — Acme Corp", tag: "Copilot" },
-  { time: "18m ago", text: "Compliance Copilot completed SOC 2 gap analysis (14 findings)", tag: "Compliance" },
-  { time: "1h ago", text: "Legal Research Copilot cited 4 cases for M&A memo — Ashford Holdings", tag: "Research" },
-  { time: "3h ago", text: "NDA batch (12) auto-approved after low-risk classification", tag: "NDA" },
-  { time: "Yesterday", text: "Due Diligence room opened for Project Meridian — 218 documents ingested", tag: "DD" },
+  {
+    time: "2m ago",
+    text: "Contract Review Copilot flagged 3 non-standard clauses in MSA — Acme Corp",
+    tag: "Copilot",
+  },
+  {
+    time: "18m ago",
+    text: "Compliance Copilot completed SOC 2 gap analysis (14 findings)",
+    tag: "Compliance",
+  },
+  {
+    time: "1h ago",
+    text: "Legal Research Copilot cited 4 cases for M&A memo — Ashford Holdings",
+    tag: "Research",
+  },
+  {
+    time: "3h ago",
+    text: "NDA batch (12) auto-approved after low-risk classification",
+    tag: "NDA",
+  },
+  {
+    time: "Yesterday",
+    text: "Due Diligence room opened for Project Meridian — 218 documents ingested",
+    tag: "DD",
+  },
 ];
 
 export const monthlySeries = [

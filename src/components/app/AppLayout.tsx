@@ -22,12 +22,22 @@ export function AppLayout({ title, children }: { title?: string; children: React
   );
 }
 
-export function PageHeader({ title, description, actions }: { title: string; description?: string; actions?: ReactNode }) {
+export function PageHeader({
+  title,
+  description,
+  actions,
+}: {
+  title: string;
+  description?: string;
+  actions?: ReactNode;
+}) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
       <div>
         <h1 className="text-3xl font-semibold tracking-tight text-gradient">{title}</h1>
-        {description && <p className="text-sm text-muted-foreground mt-1.5 max-w-2xl">{description}</p>}
+        {description && (
+          <p className="text-sm text-muted-foreground mt-1.5 max-w-2xl">{description}</p>
+        )}
       </div>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
     </div>

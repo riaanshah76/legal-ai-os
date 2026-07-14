@@ -10,7 +10,7 @@ export const Route = createFileRoute("/login")({
 
 function Login() {
   const nav = useNavigate();
-  const [mode, setMode] = useState<"login"|"signup">("login");
+  const [mode, setMode] = useState<"login" | "signup">("login");
   const [loading, setLoading] = useState(false);
 
   const submit = (e: React.FormEvent) => {
@@ -31,7 +31,9 @@ function Login() {
           </div>
           <div>
             <div className="text-sm font-semibold">Industry AI OS</div>
-            <div className="text-[10px] text-muted-foreground uppercase tracking-widest">Legal Edition</div>
+            <div className="text-[10px] text-muted-foreground uppercase tracking-widest">
+              Legal Edition
+            </div>
           </div>
         </Link>
         <div className="relative max-w-md">
@@ -46,48 +48,85 @@ function Login() {
             </div>
           </div>
         </div>
-        <div className="relative text-xs text-muted-foreground">SOC 2 Type II · ISO 27001 · GDPR</div>
+        <div className="relative text-xs text-muted-foreground">
+          SOC 2 Type II · ISO 27001 · GDPR
+        </div>
       </div>
 
       {/* Right form */}
       <div className="flex items-center justify-center p-6">
-        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-          className="w-full max-w-md glass-strong rounded-2xl p-8 shadow-elegant">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="w-full max-w-md glass-strong rounded-2xl p-8 shadow-elegant"
+        >
           <div className="text-center">
-            <h1 className="text-2xl font-semibold">{mode === "login" ? "Welcome back" : "Create your account"}</h1>
+            <h1 className="text-2xl font-semibold">
+              {mode === "login" ? "Welcome back" : "Create your account"}
+            </h1>
             <p className="text-sm text-muted-foreground mt-1">
-              {mode === "login" ? "Sign in to your Legal AI workspace" : "Start your 14-day enterprise trial"}
+              {mode === "login"
+                ? "Sign in to your Legal AI workspace"
+                : "Start your 14-day enterprise trial"}
             </p>
           </div>
 
           <form onSubmit={submit} className="mt-6 space-y-3">
             {mode === "signup" && (
-              <input placeholder="Full name" className="w-full h-11 px-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40" />
+              <input
+                placeholder="Full name"
+                className="w-full h-11 px-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40"
+              />
             )}
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input type="email" required defaultValue="sarah@lawfirm.com" placeholder="you@company.com"
-                className="w-full h-11 pl-9 pr-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40" />
+              <input
+                type="email"
+                required
+                defaultValue="sarah@lawfirm.com"
+                placeholder="you@company.com"
+                className="w-full h-11 pl-9 pr-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40"
+              />
             </div>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <input type="password" required defaultValue="••••••••"
-                className="w-full h-11 pl-9 pr-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40" />
+              <input
+                type="password"
+                required
+                defaultValue="••••••••"
+                className="w-full h-11 pl-9 pr-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40"
+              />
             </div>
             <div className="flex items-center justify-between text-xs">
               <label className="inline-flex items-center gap-2 text-muted-foreground">
                 <input type="checkbox" defaultChecked className="accent-primary" /> Remember me
               </label>
-              <a href="#" className="text-primary hover:underline">Forgot password?</a>
+              <a href="#" className="text-primary hover:underline">
+                Forgot password?
+              </a>
             </div>
-            <button disabled={loading} className="w-full h-11 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 shadow-glow inline-flex items-center justify-center gap-2 disabled:opacity-60">
-              {loading ? "Signing you in…" : (<>{mode === "login" ? "Sign in" : "Create account"} <ArrowRight className="h-4 w-4" /></>)}
+            <button
+              disabled={loading}
+              className="w-full h-11 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 shadow-glow inline-flex items-center justify-center gap-2 disabled:opacity-60"
+            >
+              {loading ? (
+                "Signing you in…"
+              ) : (
+                <>
+                  {mode === "login" ? "Sign in" : "Create account"}{" "}
+                  <ArrowRight className="h-4 w-4" />
+                </>
+              )}
             </button>
           </form>
 
           <div className="mt-5 text-center text-xs text-muted-foreground">
             {mode === "login" ? "New here?" : "Already have an account?"}{" "}
-            <button onClick={() => setMode(mode === "login" ? "signup" : "login")} className="text-primary hover:underline">
+            <button
+              onClick={() => setMode(mode === "login" ? "signup" : "login")}
+              className="text-primary hover:underline"
+            >
               {mode === "login" ? "Create an account" : "Sign in"}
             </button>
           </div>

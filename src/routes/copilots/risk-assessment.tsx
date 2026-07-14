@@ -1,7 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { AppLayout, PageHeader } from "@/components/app/AppLayout";
 import { AlertOctagon } from "lucide-react";
-import { ResponsiveContainer, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Tooltip } from "recharts";
+import {
+  ResponsiveContainer,
+  RadarChart,
+  Radar,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Tooltip,
+} from "recharts";
 
 export const Route = createFileRoute("/copilots/risk-assessment")({
   head: () => ({ meta: [{ title: "Risk Assessment Copilot · Legal AI OS" }] }),
@@ -28,7 +36,10 @@ const portfolio = [
 function Risk() {
   return (
     <AppLayout title="Risk Assessment Copilot">
-      <PageHeader title="Risk Assessment Copilot" description="Portfolio-wide legal risk scoring across contracts, regulation and litigation."/>
+      <PageHeader
+        title="Risk Assessment Copilot"
+        description="Portfolio-wide legal risk scoring across contracts, regulation and litigation."
+      />
 
       <div className="grid lg:grid-cols-3 gap-4 mb-6">
         <div className="glass rounded-2xl p-6">
@@ -36,32 +47,51 @@ function Risk() {
           <div className="h-64">
             <ResponsiveContainer>
               <RadarChart data={radar}>
-                <PolarGrid stroke="#23252D"/>
-                <PolarAngleAxis dataKey="k" tick={{ fill: "#9CA3AF", fontSize: 11 }}/>
-                <PolarRadiusAxis stroke="#23252D" tick={false}/>
-                <Radar dataKey="v" stroke="#45E0D1" fill="#45E0D1" fillOpacity={0.35}/>
-                <Tooltip contentStyle={{ background: "#111318", border: "1px solid #23252D", borderRadius: 12 }}/>
+                <PolarGrid stroke="#23252D" />
+                <PolarAngleAxis dataKey="k" tick={{ fill: "#9CA3AF", fontSize: 11 }} />
+                <PolarRadiusAxis stroke="#23252D" tick={false} />
+                <Radar dataKey="v" stroke="#45E0D1" fill="#45E0D1" fillOpacity={0.35} />
+                <Tooltip
+                  contentStyle={{
+                    background: "#111318",
+                    border: "1px solid #23252D",
+                    borderRadius: 12,
+                  }}
+                />
               </RadarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         <div className="glass rounded-2xl p-6 lg:col-span-2">
-          <div className="text-sm font-semibold mb-4 flex items-center gap-2"><AlertOctagon className="h-4 w-4 text-warning"/>Portfolio Exposure</div>
+          <div className="text-sm font-semibold mb-4 flex items-center gap-2">
+            <AlertOctagon className="h-4 w-4 text-warning" />
+            Portfolio Exposure
+          </div>
           <div className="space-y-2">
-            {portfolio.map(p => (
-              <div key={p.name} className="grid grid-cols-12 items-center gap-3 rounded-xl border border-border p-4">
+            {portfolio.map((p) => (
+              <div
+                key={p.name}
+                className="grid grid-cols-12 items-center gap-3 rounded-xl border border-border p-4"
+              >
                 <div className="col-span-5">
                   <div className="text-sm font-medium truncate">{p.name}</div>
                   <div className="text-[11px] text-muted-foreground">Exposure {p.exposure}</div>
                 </div>
                 <div className="col-span-5">
                   <div className="h-2 bg-muted rounded-full">
-                    <div className={`h-full rounded-full ${p.level === "high" ? "bg-danger" : p.level === "medium" ? "bg-warning" : "bg-success"}`} style={{width:`${p.risk}%`}}/>
+                    <div
+                      className={`h-full rounded-full ${p.level === "high" ? "bg-danger" : p.level === "medium" ? "bg-warning" : "bg-success"}`}
+                      style={{ width: `${p.risk}%` }}
+                    />
                   </div>
                 </div>
                 <div className="col-span-2 text-right">
-                  <span className={`text-[11px] px-2 py-0.5 rounded-full ${p.level === "high" ? "bg-danger/15 text-danger" : p.level === "medium" ? "bg-warning/15 text-warning" : "bg-success/15 text-success"}`}>{p.level}</span>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-full ${p.level === "high" ? "bg-danger/15 text-danger" : p.level === "medium" ? "bg-warning/15 text-warning" : "bg-success/15 text-success"}`}
+                  >
+                    {p.level}
+                  </span>
                 </div>
               </div>
             ))}

@@ -1,8 +1,23 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
-  LayoutDashboard, Bot, FileSearch, Workflow, CheckSquare, BookOpen,
-  Plug, BarChart3, Settings, Sparkles, ShieldCheck, ScrollText,
-  Scale, FileCheck2, ClipboardList, Gavel, Building2, AlertTriangle,
+  LayoutDashboard,
+  Bot,
+  FileSearch,
+  Workflow,
+  CheckSquare,
+  BookOpen,
+  Plug,
+  BarChart3,
+  Settings,
+  Sparkles,
+  ShieldCheck,
+  ScrollText,
+  Scale,
+  FileCheck2,
+  ClipboardList,
+  Gavel,
+  Building2,
+  AlertTriangle,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -38,24 +53,36 @@ export function Sidebar() {
         </div>
         <div className="leading-tight">
           <div className="text-sm font-semibold">Legal AI OS</div>
-          <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Enterprise</div>
+          <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
+            Enterprise
+          </div>
         </div>
       </Link>
       <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-6">
         <div>
-          <div className="px-2 pb-2 text-[10px] uppercase tracking-wider text-muted-foreground">Platform</div>
+          <div className="px-2 pb-2 text-[10px] uppercase tracking-wider text-muted-foreground">
+            Platform
+          </div>
           <div className="space-y-1">
             {primary.map((item) => {
               const active = pathname === item.to;
               const Icon = item.icon;
               return (
-                <Link key={item.to} to={item.to}
+                <Link
+                  key={item.to}
+                  to={item.to}
                   className={`relative flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                    active ? "text-foreground bg-accent/60" : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
-                  }`}>
+                    active
+                      ? "text-foreground bg-accent/60"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
+                  }`}
+                >
                   {active && (
-                    <motion.span layoutId="sidebar-active" className="absolute inset-0 rounded-lg border border-primary/30 bg-primary/5"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }} />
+                    <motion.span
+                      layoutId="sidebar-active"
+                      className="absolute inset-0 rounded-lg border border-primary/30 bg-primary/5"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
                   )}
                   <Icon className="h-4 w-4 relative z-10" />
                   <span className="relative z-10">{item.label}</span>
@@ -73,10 +100,15 @@ export function Sidebar() {
               const active = pathname === item.to;
               const Icon = item.icon;
               return (
-                <Link key={item.to} to={item.to}
+                <Link
+                  key={item.to}
+                  to={item.to}
                   className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-colors ${
-                    active ? "text-foreground bg-accent/60 border border-primary/20" : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
-                  }`}>
+                    active
+                      ? "text-foreground bg-accent/60 border border-primary/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
+                  }`}
+                >
                   <Icon className="h-4 w-4" />
                   <span className="truncate">{item.label}</span>
                 </Link>

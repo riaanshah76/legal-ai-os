@@ -19,17 +19,28 @@ const collections = [
 function Knowledge() {
   return (
     <AppLayout title="Knowledge Base">
-      <PageHeader title="Knowledge Base" description="Your institutional legal knowledge — searchable and cited by every copilot."/>
+      <PageHeader
+        title="Knowledge Base"
+        description="Your institutional legal knowledge — searchable and cited by every copilot."
+      />
       <div className="relative mb-6">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground"/>
-        <input placeholder="Search playbooks, clauses, memos…" className="w-full h-14 pl-12 pr-4 rounded-xl bg-muted/40 border border-border text-base focus:outline-none focus:border-primary/40"/>
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+        <input
+          placeholder="Search playbooks, clauses, memos…"
+          className="w-full h-14 pl-12 pr-4 rounded-xl bg-muted/40 border border-border text-base focus:outline-none focus:border-primary/40"
+        />
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {collections.map(c => (
-          <div key={c.name} className="glass rounded-2xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all">
+        {collections.map((c) => (
+          <div
+            key={c.name}
+            className="glass rounded-2xl p-6 hover:border-primary/30 hover:-translate-y-1 transition-all"
+          >
             <div className="flex items-start justify-between">
-              <div className="h-11 w-11 rounded-xl bg-primary/15 grid place-items-center"><BookOpen className="h-5 w-5 text-primary"/></div>
-              <Star className="h-4 w-4 text-muted-foreground"/>
+              <div className="h-11 w-11 rounded-xl bg-primary/15 grid place-items-center">
+                <BookOpen className="h-5 w-5 text-primary" />
+              </div>
+              <Star className="h-4 w-4 text-muted-foreground" />
             </div>
             <div className="mt-4 text-lg font-semibold">{c.name}</div>
             <div className="text-xs text-muted-foreground mt-1">{c.d}</div>

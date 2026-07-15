@@ -1,5 +1,4 @@
 import { Bell, Search, Sun, Moon, ChevronDown, Settings, LogOut } from "lucide-react";
-import { useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import {
   DropdownMenu,
@@ -9,9 +8,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 export function TopBar({ title }: { title?: string }) {
-  const [dark, setDark] = useState(true);
+  const { theme, toggle } = useTheme();
   const nav = useNavigate();
   return (
     <header className="sticky top-0 z-30 h-16 border-b border-border bg-background/70 backdrop-blur-xl">

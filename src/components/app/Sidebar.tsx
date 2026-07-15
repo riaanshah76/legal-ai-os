@@ -20,6 +20,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { BrandLockup } from "@/components/brand/Brand";
 
 // Copilots nav section is hidden from the UI for now — see SHOW_COPILOTS below.
 const SHOW_COPILOTS = false;

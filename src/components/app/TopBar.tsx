@@ -30,10 +30,11 @@ export function TopBar({ title }: { title?: string }) {
           </div>
         </div>
         <button
-          onClick={() => setDark(!dark)}
+          onClick={toggle}
+          aria-label="Toggle theme"
           className="h-9 w-9 grid place-items-center rounded-lg hover:bg-accent/50 text-muted-foreground"
         >
-          {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
         </button>
         <button className="relative h-9 w-9 grid place-items-center rounded-lg hover:bg-accent/50 text-muted-foreground">
           <Bell className="h-4 w-4" />

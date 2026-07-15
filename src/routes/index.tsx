@@ -41,6 +41,7 @@ import {
   OneDriveLogo,
   BoxLogo,
 } from "@/components/brand/logos";
+import { BrandLockup } from "@/components/brand/Brand";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -69,16 +70,8 @@ function Landing() {
       {/* NAV */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="h-9 w-9 rounded-xl bg-primary/15 border border-primary/30 grid place-items-center shadow-glow">
-              <Gavel className="h-4 w-4 text-primary" />
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold">Industry AI OS</div>
-              <div className="text-[10px] text-muted-foreground uppercase tracking-[0.14em]">
-                Legal Edition
-              </div>
-            </div>
+          <Link to="/" className="flex items-center">
+            <BrandLockup size={40} />
           </Link>
           <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
             {nav.map((n) => (

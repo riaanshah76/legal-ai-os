@@ -121,11 +121,15 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+import { ThemeProvider } from "../components/theme/ThemeProvider";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <ThemeProvider>
+        <Outlet />
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

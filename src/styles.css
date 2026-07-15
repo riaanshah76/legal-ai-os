@@ -103,10 +103,34 @@
   --foreground: oklch(0.98 0.005 285);
 }
 
-html {
-  color-scheme: dark;
-  background: #09090b;
+.light {
+  --background: oklch(0.99 0.003 285);
+  --foreground: oklch(0.18 0.01 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 285);
+  --primary: oklch(0.62 0.14 190);
+  --primary-foreground: oklch(0.99 0.005 190);
+  --secondary: oklch(0.96 0.005 285);
+  --secondary-foreground: oklch(0.2 0.01 285);
+  --muted: oklch(0.96 0.005 285);
+  --muted-foreground: oklch(0.48 0.012 285);
+  --accent: oklch(0.94 0.02 190);
+  --accent-foreground: oklch(0.2 0.01 285);
+  --border: oklch(0.9 0.005 285);
+  --input: oklch(0.94 0.005 285);
+  --ring: oklch(0.62 0.14 190);
+  --sidebar: oklch(0.98 0.004 285);
+  --sidebar-foreground: oklch(0.22 0.01 285);
+  --sidebar-accent: oklch(0.95 0.005 285);
+  --sidebar-accent-foreground: oklch(0.2 0.01 285);
+  --sidebar-border: oklch(0.9 0.005 285);
+  color-scheme: light;
 }
+
+html.light { background: #f7f8fa; color-scheme: light; }
+html.dark, html:not(.light) { background: #09090b; color-scheme: dark; }
 
 @layer base {
   * {

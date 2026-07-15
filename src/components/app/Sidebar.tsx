@@ -50,16 +50,8 @@ export function Sidebar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
     <aside className="hidden lg:flex flex-col w-64 shrink-0 border-r border-border bg-sidebar/60 backdrop-blur-xl h-screen sticky top-0">
-      <Link to="/dashboard" className="flex items-center gap-2 px-5 h-16 border-b border-border">
-        <div className="h-8 w-8 rounded-lg bg-primary/20 border border-primary/30 grid place-items-center shadow-glow">
-          <Gavel className="h-4 w-4 text-primary" />
-        </div>
-        <div className="leading-tight">
-          <div className="text-sm font-semibold">Legal AI OS</div>
-          <div className="text-[10px] text-muted-foreground uppercase tracking-wider">
-            Enterprise
-          </div>
-        </div>
+      <Link to="/dashboard" className="flex items-center px-5 h-20 border-b border-border">
+        <BrandLockup size={40} />
       </Link>
       <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-6">
         <div>

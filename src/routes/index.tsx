@@ -110,21 +110,22 @@ function Landing() {
 
       {/* HERO */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
           <img
             src="/BACKGROUND_LIGHT.png"
             alt=""
-            className="h-full w-full object-cover dark:hidden"
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-55 dark:hidden"
           />
           <img
             src="/BACKGROUND_DARK.png"
             alt=""
-            className="hidden h-full w-full object-cover dark:block"
+            className="absolute inset-0 hidden h-full w-full object-cover object-center opacity-80 dark:block"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-background/72 dark:bg-background/38" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/15 via-transparent to-background/55 dark:to-background/35" />
+          <div className="absolute inset-0 hidden dark:block dark:bg-gradient-to-r dark:from-background/70 dark:from-0% dark:via-background/35 dark:via-52% dark:to-transparent dark:to-68%" />
+          <div className="grid-bg absolute inset-0 opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
         </div>
-        <div className="absolute inset-0 grid-bg opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
         <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-24 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

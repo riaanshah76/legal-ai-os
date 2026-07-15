@@ -22,7 +22,10 @@ import {
   Workflow,
   ChevronRight,
   Circle,
+  Sun,
+  Moon,
 } from "lucide-react";
+import { useTheme } from "@/components/theme/ThemeProvider";
 import {
   MicrosoftLogo,
   GoogleDriveLogo,
@@ -65,6 +68,7 @@ const nav = [
 ];
 
 function Landing() {
+  const { theme, toggle } = useTheme();
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
@@ -81,6 +85,13 @@ function Landing() {
             ))}
           </nav>
           <div className="flex items-center gap-2">
+            <button
+              onClick={toggle}
+              aria-label="Toggle theme"
+              className="h-9 w-9 grid place-items-center rounded-lg hover:bg-accent/50 text-muted-foreground"
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <Link
               to="/login"
               className="hidden sm:inline-flex items-center px-3.5 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg"

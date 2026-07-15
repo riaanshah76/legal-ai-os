@@ -11,12 +11,7 @@ export function BrandMark({ size = 36, className = "" }: { size?: number; classN
       className={`relative shrink-0 rounded-xl overflow-hidden ring-1 ring-primary/30 shadow-glow ${className}`}
       style={{ height: size, width: size }}
     >
-      <img
-        src={src}
-        alt="Legal AI OS"
-        className="h-full w-full object-contain"
-        loading="eager"
-      />
+      <img src={src} alt="Legal AI OS" className="h-full w-full object-contain" loading="eager" />
     </div>
   );
 }

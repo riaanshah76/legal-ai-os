@@ -1,70 +1,170 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { AppLayout, PageHeader } from "@/components/app/AppLayout";
-import { useState } from "react";
-import { User, Building, Palette, Bell, Key, Shield, CreditCard } from "lucide-react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { AppLayout } from "@/components/app/AppLayout";
+import { Building2, Cpu, KeyRound, LogOut, UserCircle } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 export const Route = createFileRoute("/settings")({
   head: () => ({ meta: [{ title: "Settings · Legal AI OS" }] }),
   component: Settings,
 });
 
-const tabs = [
-  { id: "profile", l: "Profile", i: User },
-  { id: "org", l: "Organization", i: Building },
-  { id: "theme", l: "Theme", i: Palette },
-  { id: "notifications", l: "Notifications", i: Bell },
-  { id: "api", l: "API Keys", i: Key },
-  { id: "security", l: "Security", i: Shield },
-  { id: "billing", l: "Billing", i: CreditCard },
-];
+const me = {
+  name: "Sarah Miller",
+  email: "sarah@lawfirm.com",
+  userId: "usr_4471ae2b9c",
+  roles: ["owner", "general counsel"],
+};
+
+function initials(text: string) {
+  const parts = text
+    .replace(/@.*/, "")
+    .split(/[.\s_-]+/)
+    .filter(Boolean);
+  return (parts[0]?.[0] ?? "U") + (parts[1]?.[0] ?? "");
+}
+
+function Section({
+  icon: Icon,
+  title,
+  description,
+  children,
+}: {
+  icon: LucideIcon;
+  title: string;
+  description?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="glass rounded-2xl p-5">
+      <div className="mb-4 flex items-start gap-3">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary ring-1 ring-primary/15">
+          <Icon className="h-5 w-5" />
+        </span>
+        <div>
+          <h2 className="text-sm font-semibold text-foreground">{title}</h2>
+          {description && <p className="mt-0.5 text-xs text-muted-foreground">{description}</p>}
+        </div>
+      </div>
+      {children}
+    </section>
+  );
+}
+
+function Row({ label, value }: { label: string; value: React.ReactNode }) {
+  return (
+    <div className="flex items-center justify-between gap-4 border-b border-border/60 py-2.5 last:border-0">
+      <span className="text-sm text-muted-foreground">{label}</span>
+      <span className="text-sm font-medium text-foreground">{value}</span>
+    </div>
+  );
+}
+
+function EmptyState({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border px-6 py-10 text-center">
+      <span className="grid h-11 w-11 place-items-center rounded-full bg-muted text-muted-foreground">
+        <Icon className="h-5 w-5" />
+      </span>
+      <div>
+        <p className="text-sm font-semibold text-foreground">{title}</p>
+        <p className="mx-auto mt-1 max-w-sm text-xs text-muted-foreground">{description}</p>
+      </div>
+    </div>
+  );
+}
 
 function Settings() {
-  const [tab, setTab] = useState("profile");
+  const nav = useNavigate();
+
   return (
     <AppLayout title="Settings">
-      <PageHeader title="Settings" description="Manage your workspace, security and billing." />
-      <div className="grid lg:grid-cols-[220px_1fr] gap-4">
-        <div className="glass rounded-2xl p-3">
-          {tabs.map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
-              className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm ${tab === t.id ? "bg-primary/10 text-primary" : "text-muted-foreground hover:bg-accent/40"}`}
-            >
-              <t.i className="h-4 w-4" />
-              {t.l}
-            </button>
-          ))}
-        </div>
-        <div className="glass rounded-2xl p-6 space-y-5">
-          <div>
-            <div className="text-lg font-semibold">{tabs.find((x) => x.id === tab)?.l}</div>
-            <div className="text-xs text-muted-foreground">Update your {tab} settings below.</div>
+      <div className="mx-auto max-w-3xl space-y-6">
+        {/* Header */}
+        <div>
+          <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            Settings
           </div>
-          {tab === "profile" && (
-            <div className="grid md:grid-cols-2 gap-4">
-              {["Full name", "Email", "Role", "Firm"].map((l) => (
-                <label key={l} className="block text-sm">
-                  <span className="text-xs text-muted-foreground">{l}</span>
-                  <input
-                    className="mt-1 w-full h-10 px-3 rounded-lg bg-muted/40 border border-border text-sm focus:outline-none focus:border-primary/40"
-                    defaultValue={l === "Email" ? "sarah@lawfirm.com" : "Sarah Miller"}
-                  />
-                </label>
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-gradient md:text-3xl">
+            Workspace settings
+          </h1>
+          <p className="mt-1.5 text-sm text-muted-foreground">
+            Your profile, tenant, and provider configuration.
+          </p>
+        </div>
+
+        {/* Identity card */}
+        <div className="glass flex items-center gap-4 rounded-2xl p-5">
+          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-primary text-lg font-semibold uppercase text-primary-foreground shadow-glow">
+            {initials(me.name)}
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="truncate text-base font-semibold text-foreground">{me.name}</div>
+            <div className="mt-1.5 flex flex-wrap gap-1.5">
+              {me.roles.map((r) => (
+                <span
+                  key={r}
+                  className="rounded-full border border-primary/25 bg-primary/5 px-2 py-0.5 text-[11px] font-medium capitalize text-primary"
+                >
+                  {r}
+                </span>
               ))}
             </div>
-          )}
-          {tab !== "profile" && (
-            <div className="text-sm text-muted-foreground rounded-xl border border-border p-8 text-center">
-              Configuration options for {tab} appear here.
-            </div>
-          )}
-          <div className="flex gap-2 justify-end">
-            <button className="h-10 px-4 rounded-lg border border-border text-sm">Cancel</button>
-            <button className="h-10 px-4 rounded-lg bg-primary text-primary-foreground text-sm font-medium">
-              Save changes
-            </button>
           </div>
+          <button
+            onClick={() => nav({ to: "/login" })}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-sm font-medium text-muted-foreground transition hover:border-destructive/50 hover:text-destructive"
+          >
+            <LogOut className="h-3.5 w-3.5" /> Sign out
+          </button>
+        </div>
+
+        <div className="grid gap-5">
+          <Section
+            icon={UserCircle}
+            title="Profile"
+            description="How you're identified in this workspace."
+          >
+            <Row label="Email" value={me.email} />
+            <Row label="Roles" value={me.roles.join(", ")} />
+            <Row label="User ID" value={<span className="font-mono text-xs">{me.userId}</span>} />
+          </Section>
+
+          <Section
+            icon={Building2}
+            title="Tenant"
+            description="The organization this workspace belongs to."
+          >
+            <p className="text-sm text-muted-foreground">Could not load tenant details.</p>
+          </Section>
+
+          <Section icon={Cpu} title="LLM Providers" description="Model and provider configuration.">
+            <EmptyState
+              icon={Cpu}
+              title="Provider configuration not available yet"
+              description="Per-tenant model + provider settings need a backend endpoint. Models are currently configured centrally via the shared Industry AI OS gateway."
+            />
+          </Section>
+
+          <Section
+            icon={KeyRound}
+            title="API Keys"
+            description="Programmatic access to the platform."
+          >
+            <EmptyState
+              icon={KeyRound}
+              title="No API-key management yet"
+              description="Programmatic API keys will appear here once the backend exposes a keys endpoint."
+            />
+          </Section>
         </div>
       </div>
     </AppLayout>

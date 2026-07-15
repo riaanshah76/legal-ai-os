@@ -1,7 +1,8 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Gavel, Mail, Lock, ArrowRight } from "lucide-react";
+import { Gavel, Mail, Lock, ArrowRight, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 export const Route = createFileRoute("/login")({
   head: () => ({ meta: [{ title: "Sign in · Legal AI OS" }] }),
@@ -12,6 +13,7 @@ function Login() {
   const nav = useNavigate();
   const [mode, setMode] = useState<"login" | "signup">("login");
   const [loading, setLoading] = useState(false);
+  const { theme, toggle } = useTheme();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +22,14 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-background text-foreground">
+    <div className="relative min-h-screen grid lg:grid-cols-2 bg-background text-foreground">
+      <button
+        onClick={toggle}
+        aria-label="Toggle theme"
+        className="absolute top-6 right-6 z-20 h-9 w-9 grid place-items-center rounded-lg hover:bg-accent/50 text-muted-foreground"
+      >
+        {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      </button>
       {/* Left brand pane */}
       <div className="hidden lg:flex relative flex-col justify-between p-10 border-r border-border overflow-hidden">
         <div className="absolute inset-0 grid-bg opacity-30" />

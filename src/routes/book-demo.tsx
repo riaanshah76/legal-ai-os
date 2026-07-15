@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Gavel, Calendar, Check, ArrowLeft } from "lucide-react";
+import { Gavel, Calendar, Check, ArrowLeft, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 export const Route = createFileRoute("/book-demo")({
   head: () => ({ meta: [{ title: "Book a Demo · Legal AI OS" }] }),
@@ -24,6 +25,7 @@ const slots = [
 function Demo() {
   const [done, setDone] = useState(false);
   const [slot, setSlot] = useState<string>();
+  const { theme, toggle } = useTheme();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border/60 backdrop-blur-xl bg-background/70 sticky top-0 z-10">
@@ -34,13 +36,22 @@ function Demo() {
             </div>
             <span className="text-sm font-semibold">Industry AI OS</span>
           </Link>
-          <Link
-            to="/"
-            className="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            Back
-          </Link>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={toggle}
+              aria-label="Toggle theme"
+              className="h-9 w-9 grid place-items-center rounded-lg hover:bg-accent/50 text-muted-foreground"
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <Link
+              to="/"
+              className="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-1"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              Back
+            </Link>
+          </div>
         </div>
       </header>
       <div className="max-w-6xl mx-auto px-6 py-12">

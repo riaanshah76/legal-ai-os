@@ -27,6 +27,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     } catch {
       /* ignore */
     }
+
+    const favicon = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+    if (favicon) {
+      favicon.href = theme === "dark" ? "/LOGO_DARK.jpg" : "/LOGO_LIGHT.png";
+    }
   }, [theme]);
 
   return (

@@ -98,7 +98,21 @@ function Landing() {
       </header>
 
       {/* HERO */}
-      <section className="relative">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/BACKGROUND_LIGHT.png"
+            alt=""
+            className="h-full w-full object-cover dark:hidden"
+          />
+          <img
+            src="/BACKGROUND_DARK.png"
+            alt=""
+            className="hidden h-full w-full object-cover dark:block"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
         <div className="absolute inset-0 grid-bg opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
         <div className="relative max-w-7xl mx-auto px-6 pt-16 pb-24 grid lg:grid-cols-2 gap-14 items-center">
           <motion.div

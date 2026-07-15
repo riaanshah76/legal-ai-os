@@ -1,17 +1,20 @@
-import logoAsset from "@/assets/legal-aios-logo.asset.json";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
-export const brandLogoUrl = logoAsset.url;
+export const LOGO_LIGHT_URL = "/LOGO_LIGHT.png";
+export const LOGO_DARK_URL = "/LOGO_DARK.jpg";
 
 export function BrandMark({ size = 36, className = "" }: { size?: number; className?: string }) {
+  const { theme } = useTheme();
+  const src = theme === "dark" ? LOGO_DARK_URL : LOGO_LIGHT_URL;
   return (
     <div
-      className={`relative shrink-0 rounded-xl overflow-hidden ring-1 ring-primary/30 bg-black shadow-glow ${className}`}
+      className={`relative shrink-0 rounded-xl overflow-hidden ring-1 ring-primary/30 shadow-glow ${className}`}
       style={{ height: size, width: size }}
     >
       <img
-        src={brandLogoUrl}
-        alt="Industry AI OS"
-        className="h-full w-full object-cover"
+        src={src}
+        alt="Legal AI OS"
+        className="h-full w-full object-contain"
         loading="eager"
       />
     </div>

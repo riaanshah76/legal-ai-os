@@ -806,7 +806,7 @@ function Documents() {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<"all" | DocType>("all");
   const [selectedId, setSelectedId] = useState<string>(documents[0].id);
-  const [aiOpen, setAiOpen] = useState(true);
+  const [aiOpen, setAiOpen] = useState(false);
 
   const filtered = useMemo(() => {
     let list = documents;
